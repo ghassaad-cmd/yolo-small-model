@@ -118,7 +118,8 @@ function summaryHtml(task, s) {
 }
 
 run.addEventListener('click', async () => {
-  const tasks = [...document.querySelectorAll('.chk input:checked')].map(c => c.value);
+  #const tasks = [...document.querySelectorAll('.chk input:checked')].map(c => c.value);
+  const tasks = [...document.querySelectorAll('.chk input[value]:checked')].map(c => c.value);
   if (!file || !tasks.length) { status.textContent = 'Pick an image and at least one task.'; return; }
   const fd = new FormData();
   fd.append('file', file); fd.append('tasks', tasks.join(',')); fd.append('conf', $('#conf').value);
