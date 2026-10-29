@@ -21,11 +21,18 @@ from fastapi.staticfiles import StaticFiles
 BASE_DIR = Path(__file__).parent
 
 # Same models as the notebook; override any with an env var (e.g. YOLO_DETECT=yolo26n.pt for speed).
+#MODEL_NAMES = {
+#    "detection": os.getenv("YOLO_DETECT", "yolo26s.pt"),
+#    "segmentation": os.getenv("YOLO_SEGMENT", "yolo26m-seg.pt"),
+#    "classification": os.getenv("YOLO_CLASSIFY", "yolo26s-cls.pt"),
+#    "pose": os.getenv("YOLO_POSE", "yolo26s-pose.pt"),
+#}
+# Small models only (nano) - for yolo-small-model repo
 MODEL_NAMES = {
-    "detection": os.getenv("YOLO_DETECT", "yolo26s.pt"),
-    "segmentation": os.getenv("YOLO_SEGMENT", "yolo26m-seg.pt"),
-    "classification": os.getenv("YOLO_CLASSIFY", "yolo26s-cls.pt"),
-    "pose": os.getenv("YOLO_POSE", "yolo26s-pose.pt"),
+    "detection": os.getenv("YOLO_DETECT", "yolo26n.pt"),
+    "segmentation": os.getenv("YOLO_SEGMENT", "yolo26n-seg.pt"),
+    "classification": os.getenv("YOLO_CLASSIFY", "yolo26n-cls.pt"),
+    "pose": os.getenv("YOLO_POSE", "yolo26n-pose.pt"),
 }
 MAX_UPLOAD_MB = int(os.getenv("MAX_UPLOAD_MB", "15"))
 
